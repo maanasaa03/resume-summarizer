@@ -271,13 +271,13 @@ def fill_ppt_template(template_path, data, output_path):
     prs.save(output_path)
 
 # ---------- Streamlit UI ----------
-st.title("📄 AI Resume to PowerPoint Generator")
-st.write("Upload your resume (.pdf or .docx), then click the button to generate a summarized PowerPoint résumé using Gemini AI.")
+st.title("Resume to PowerPoint Generator")
+st.write("Upload your resume (.pdf or .docx), then click the button to generate a summarized PowerPoint résumé.")
 
 uploaded_file = st.file_uploader("Choose a resume file", type=["pdf", "docx"])
 
 if uploaded_file:
-    process_button = st.button("🚀 Upload & Generate PowerPoint")
+    process_button = st.button("Upload & Generate PowerPoint")
 
     if process_button:
         template_path = "refined_template.pptx"
@@ -294,6 +294,6 @@ if uploaded_file:
             output_path = os.path.join(output_folder, os.path.splitext(uploaded_file.name)[0] + ".pptx")
             fill_ppt_template(template_path, data, output_path)
 
-        st.success("✅ PowerPoint generated successfully!")
+        st.success("PowerPoint generated successfully!")
         with open(output_path, "rb") as f:
-            st.download_button("📥 Download PowerPoint", f, file_name=os.path.basename(output_path))
+            st.download_button("Download PowerPoint", f, file_name=os.path.basename(output_path))
