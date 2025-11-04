@@ -3,4 +3,4 @@ python-dotenv
 python-docx
 python-pptx
 pdfplumber
-google-generativeai
+google-genai
